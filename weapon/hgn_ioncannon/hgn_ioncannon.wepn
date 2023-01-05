@@ -1,0 +1,32 @@
+StartWeaponConfig(NewWeaponType,"Gimble","InstantHit","IonBeam","Normal",0,4000,0,4,2,0,20,0,1,7,0,0,0,0,0,0,0.1,"Normal",0,0,1000);
+AddWeaponResult(NewWeaponType,"Hit","DamageHealth","Target",2300,2300,"");
+AddWeaponResult(NewWeaponType,"Hit","Push","Target",-150,-150,"");
+setPenetration(NewWeaponType,40,1,
+{PlanetKillerArmour=0},
+{SwarmerArmor=0.10},
+{SpaceMineArmor=1},
+{TorpedoArmor=0},
+{HeavyMissileArmor=0},
+{SmallMissileArmor=0},
+{LightArmour=1.1},
+{LightArmour_hw1=0.5},
+{MediumArmour=1.0},
+{SuperUtilityArmour = 1.0},
+{SubSystemArmour=0.37},
+{ResArmour=0.2},
+{HeavyArmour=1.1});
+setAccuracy(NewWeaponType,1,
+{Swarmer=0.01},
+{SpaceMine=0.01},
+{Torpedo=0},
+{HeavyMissile=0},
+{SmallMissile=0},
+{Fighter=0.1},
+{Fighter_hw1=0.1},
+{Corvette=0.06},
+{Corvette_hw1=0.06},
+{SubSystem=1.0},
+{munition=0.01});
+setAngles(NewWeaponType,12,0,0,0,0);
+
+setFireMultFactor(NewWeaponType, 1.0);
