@@ -1,0 +1,7 @@
+{
+    "Lua.diagnostics.disable": [
+        "undefined-global",
+        "lowercase-global"
+    ],
+    "Lua.runtime.plugin": ".vscode/lua/plugin.lua"
+}
