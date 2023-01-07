@@ -7,13 +7,15 @@ ExtFilter = "levels_dm";
 
 Tags = "dm,hw2,dm_hw2,hw1,dm_hw1";
 
-LevelList = {};
 
+
+local levels = {}; -- write it to a tmp to avoid any hooks on setglobal
 for i = 2, 8 do
-	tbl_push(LevelList, {
+	tbl_push(levels, {
 		Tags = i .. "p",
 		Name = i .. "p_random_select",
 		Desc = "Random Map Select",
 		MaxPlayers = i,
 	});
 end
+LevelList = levels;
