@@ -1,0 +1,3 @@
+dofilepath("data:leveldata/multiplayer/lib/pp_randomselectlevel.lua");
+
+PP_RandomLevel(3);

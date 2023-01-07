@@ -1,0 +1,19 @@
+dofilepath("data:scripts/lib/table_util.lua");
+
+
+Root = "DATA:\\LevelData\\Multiplayer\\DeathMatchPP";
+
+ExtFilter = "levels_dm";
+
+Tags = "dm,hw2,dm_hw2,hw1,dm_hw1";
+
+LevelList = {};
+
+for i = 2, 8 do
+	tbl_push(LevelList, {
+		Tags = i .. "p",
+		Name = i .. "p_random_select",
+		Desc = "Random Map Select",
+		MaxPlayers = i,
+	});
+end
