@@ -57,6 +57,7 @@ PP_RandomLevel = PP_RandomLevel or function (player_count, excluded_groups)
 end
 
 function PP_ImportRandomLevel(player_count)
+    print("import rand level for " .. player_count .. " players");
     local level = nil;
     -- if we try picking random for N players and there are no N sized maps, we will try picking N+1 until 8
     for i = player_count, 8 do
@@ -70,4 +71,5 @@ function PP_ImportRandomLevel(player_count)
     -- we need to re-overwrite the level desc since the imported level set it
     dofilepath("data:leveldata/multiplayer/dm_pp.levels"); -- so we can look up the level desc
     levelDesc = LevelList[player_count - 1].Desc;
+    maxPlayers = player_count;
 end
