@@ -64,21 +64,21 @@ if (TBL_UTIL == nil) then
 	end
 
 	function tbl_includesValue(table, value)
-		for i, v in table do
+		for _, v in table do
 			if v == value then
-				return true
+				return 1;
 			end
 		end
-		return false
+		return nil;
 	end
 
 	function tbl_includesKey(table, value)
-		for i, v in table do
+		for i, _ in table do
 			if i == value then
-				return true
+				return 1;
 			end
 		end
-		return false
+		return nil;
 	end
 
 	function tbl_length(table)
@@ -103,6 +103,16 @@ if (TBL_UTIL == nil) then
 				first_idx = nil;
 			end
 			out[i + 1] = v;
+		end
+		return out;
+	end
+
+	function tbl_pack(table)
+		local i = 1;
+		local out = {};
+		for _, v in table do
+			out[i] = v;
+			i = i + 1;
 		end
 		return out;
 	end

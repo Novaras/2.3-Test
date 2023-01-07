@@ -8,6 +8,25 @@ dofilepath("data:scripts/lib/table_util.lua");
 function strsplit(str, delimeter, return_words_only)
 	delimeter = delimeter or "%s";
 
+	if (delimeter == '') then
+		local chars = {};
+		for i = 1, strlen(str) do
+			chars[i] = strsub(str, i, i);
+		end
+
+		if (return_words_only) then
+			return chars;
+		else
+			return tbl_map(chars, function (char)
+				return {
+					start = i,
+					finish = i,
+					str = char,
+				};
+			end)
+		end
+	end
+
 	local i = 1;
 	local s, f;
 	local matches = {};
@@ -77,4 +96,27 @@ function strimplode(arr, delimeter)
 	end
 
 	return str;
+end
+
+function strtrim(str, dir)
+	local chars = strsplit(str, '', 1);
+
+	if (dir) then
+		dir = tonumber(dir);
+		if (dir > 0) then -- trim the end
+			for i = tbl_length(chars), 1, -1 do
+				if (not strfind(chars[i], "(%s+)")) then
+					return strsub(str, 1, i);
+				end
+			end
+		elseif (dir < 0) then -- trim the beginning
+			for i = 1, tbl_length(chars) do
+				if (not strfind(chars[i], '(%s+)')) then
+					return strsub(str, i, strlen(str));
+				end
+			end
+		end
+	end
+
+	return strtrim(strtrim(str, 1), -1); -- trim both
 end
