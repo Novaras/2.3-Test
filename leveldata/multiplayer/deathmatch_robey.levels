@@ -1,0 +1,151 @@
+--RoBeY's Map Pack for Homeworld Remastered
+
+--Local_Desc - Description of this package
+--Package_Sym - Shared name for packages with the same catagory
+--Package_Desc - Description - may move to a 'package' desc file...
+
+Root = "DATA:\\LevelData\\Multiplayer\\deathmatch_robey"
+
+ExtFilter = "levels_dm,levels_hw2,levels_dm_hw2,levels_hw1,levels_dm_hw1"
+
+--Tags - Set single tags for all levels...
+Tags = "dm,hw2,dm_hw2,hw1,dm_hw1"
+
+--TagSets - Set groups of tags for all levels (defined in Scripts/Tags/*.tags) - makes bulk editing faster...
+--TagSets = "hw2"
+
+LevelList = {
+	{
+		Tags = "8p",
+		Name = "Cern-Kalis_Regret",
+		Desc = "Spectators 4P Cern-Kali's Regret",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "DawnOfDefeat",
+		Desc = "Spectators 6P Dawn Of Defeat",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "KuiperBelt-V2",
+		Desc = "Spectators 6P KuiperBelt-V2",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "Cern-Hurricane",
+		Desc = "Spectators 6P Cern-Hurricane",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "Cern-Ying_&_Yang",
+		Desc = "Spectators 6P Cern-Yin & Yang",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "TFL-Armed For Burial V4",
+		Desc = "Spectators 6P TFL-Armed For Burial V4",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "TFL-Armed For Survival",
+		Desc = "Spectators 6P TFL-Armed For Survival",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "TFL-Nexus Evolution V2",
+		Desc = "Spectators 6P TFL-Nexus Evolution V2",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "TFL-Painted Desert",
+		Desc = "Spectators 6P TFL-Painted Desert",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "Cern-RoBeYs_Land",
+		Desc = "Cern-RoBeY's Land",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "TFL-Sins Of a Solar Empire",
+		Desc = "Spectators 6P TFL-Sins Of a Solar Empire",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "TFL-Sins Tournament",
+		Desc = "Spectators 4P TFL-Sins Tournament",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "BC-Vaygr Base",
+		Desc = "Spectators 6P BC-Vaygr Base",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "BC-Vanguard",
+		Desc = "Spectators 6P BC-Vanguard",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "Kharam_Wreck_V2",
+		Desc = "Spectators 4P Kharam Wreck V2",
+		MaxPlayers = 8,
+	},
+    {
+		Tags = "8p",
+		Name = "Micro_Cosmos",
+		Desc = "Spectators 6P Micro Cosmos",
+		MaxPlayers = 8,
+	},
+	{
+		Tags = "8p",
+		Name = "Micro_Sarum",
+		Desc = "Spectators 6P Micro Sarum",
+		MaxPlayers = 8,
+	},
+	{
+		Tags = "8p",
+		Name = "Micro_Terah",
+		Desc = "Spectators 6P Micro Terah",
+		MaxPlayers = 8,
+	},
+	{
+		Tags = "8p",
+		Name = "Micro_Hyperspace_Arena",
+		Desc = "Micro Hyperspace Arena",
+		MaxPlayers = 8,
+	},
+	{
+		Tags = "8p",
+		Name = "Micro_Phobic",
+		Desc = "Spectators 6P Micro Phobic",
+		MaxPlayers = 8,
+	},
+	{
+		Tags = "8p",
+		Name = "Cern-Ying_robey_v2",
+		Desc = "RoBeY Yang",
+		MaxPlayers = 8,
+	},
+	{
+		Tags = "8p",
+		Name = "RoBeY-Dust_Wars_V2",
+		Desc = "Spectators 2P RoBeY-Dust Wars",
+		MaxPlayers = 8,
+	},
+
+}
