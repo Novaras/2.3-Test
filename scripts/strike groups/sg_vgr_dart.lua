@@ -26,7 +26,7 @@ Tags = "sgf_vgr"
 
 StanceGrouping = "Shape"
 StanceGroupingAg = "Shape"
-StanceGroupingEv = "Subs"
+StanceGroupingEv = "Shape"
 
 DeathDamage = 0.90
 FriendlyFire = { 0.8, 0.0, 0.0 }       -- Base, Pop, PopSqrt

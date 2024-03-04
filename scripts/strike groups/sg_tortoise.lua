@@ -3,7 +3,7 @@ Order = -1.0		-- Means invisible to UI
 
 StanceGrouping = "Shape"
 StanceGroupingAg = "Shape"
-StanceGroupingEv = "Subs"
+StanceGroupingEv = "Shape"
 
 UnitLimit = 32
 
