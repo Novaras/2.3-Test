@@ -1,6 +1,6 @@
 supplyLimit("Fighter", 140);
 
-supplyLimit("Scout", 36);
+supplyLimit("Scout", 30);
 supplyLimit("Interceptor", 140);
 supplyLimit("Bomber", 140);
 supplyLimit("LanceFighter", 140);
