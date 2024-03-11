@@ -24,12 +24,16 @@ end
 -- When a docking squadron is under attack, they sometimes glitch and stop. This issues another dock order to dock with the closest ship.
 function SobGroup_UnderAttackReissueDock(group)
 	if (SobGroup_GetCurrentOrder(group) == COMMAND_Dock) then -- en route to dock
-		if (SobGroup_UnderAttack(group)) then -- under attack
-			if (SobGroup_Count(group) < SobGroup_GetStaticF(group, "buildBatch")) then -- lost one or more members
-				if (SobGroup_IsDocked(group) == 0) then -- no member of this squad is docked
-					if (SobGroup_GetActualSpeed(group) < 50) then -- probably bugged into stopping - could get unlucky here and catch a pivoting squad
-						SobGroup_DockSobGroupWithAny(group)
-					end
+		if (SobGroup_Count(group) < SobGroup_GetStaticF(group, "buildBatch")) then -- lost one or more members
+			-- print("HI! I'm docking with missing members! (g = " .. group .. ", c = " .. SobGroup_Count(group) .. ")");
+			-- print("\tSobGroup_UnderAttack?: " .. tostring(SobGroup_UnderAttack(group) or 'nil'));
+			if (SobGroup_IsDocked(group) == 0 and SobGroup_UnderAttack(group) == 1) then -- no member of this squad is docked
+				local actual_speed = sqrt(SobGroup_GetActualSpeed(group));
+				-- print("\tI'm not currently docked!");
+				-- print("\tMy 'actual speed' is " .. tostring(actual_speed));
+				if (actual_speed < 70) then -- probably bugged into stopping - could get unlucky here and catch a pivoting squad
+					-- print("\tRe-issuing my dock command!");
+					SobGroup_DockSobGroupWithAny(group);
 				end
 			end
 		end
