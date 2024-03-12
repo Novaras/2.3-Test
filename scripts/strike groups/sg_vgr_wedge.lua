@@ -62,7 +62,7 @@ Multipliers = {
 -- Vaygr Pop 4,5,8,16,24,28
 -- Vay Vette - 1,1+,2,4,6,7
 
-		{ "Fighter",AggressiveStance, "Graph", 5, 1.05, 6, 1.05, 10, 1.05, 15, 1.05, 20, 0.70,  }, 
+		{ "Hgn_Interceptor",AggressiveStance, "Graph", 5, 1.05, 6, 1.05, 10, 1.05, 15, 1.05, 20, 0.70,  }, 
 		{ "Fighter_hw1",AggressiveStance, "Graph", 5, 1.05, 6, 1.05, 10, 1.05, 15, 1.05, 20, 0.70,  },
 
 
@@ -73,6 +73,8 @@ Multipliers = {
 		{ "Fighter", "Graph", 5, 0.88, 6, 0.88, 10, 0.88, 15, 0.88, 20, 0.85,  },
  		{ "Fighter_hw1", "Graph", 5, 0.85, 6, 0.85, 10, 0.85, 15, 0.85, 20, 0.85,  },
 
+		{ "Hgn_Scout", "Graph", 3, 0.88 },
+		{ "Vgr_Scout", "Graph", 3, 0.88 },
 		{ "Vgr_Interceptor", "Graph", 7, 0.88, 8, 0.88, 14, 0.88, 21, 0.88, 28, 0.85, 35, 0.50 },
 		{ "Vgr_Bomber", "Graph", 6, 0.88, 7, 0.88, 12, 0.88, 18, 0.88, 24, 0.85, 30, 0.50 },
 

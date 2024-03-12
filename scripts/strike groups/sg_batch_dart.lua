@@ -58,6 +58,8 @@ Multipliers = {
 
     FLIGHTPERF  = {
  
+		{ "Hgn_Scout", "Graph", 3, 0.88 },
+		{ "Vgr_Scout", "Graph", 3, 0.88 },
 		{ "Vgr_Interceptor", "Graph", 7, 0.88, 8, 0.88, 14, 0.88, 21, 0.88, 28, 0.85},
 		{ "Vgr_Bomber", "Graph", 6, 0.88, 7, 0.88, 12, 0.88, 18, 0.88, 24, 0.85},
 
