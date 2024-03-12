@@ -1,13 +1,13 @@
 # Build 19
 
 Includes:
-- https://github.com/Novaras/2.3-Test/pull/9
-- https://github.com/Novaras/2.3-Test/pull/10
-- https://github.com/Novaras/2.3-Test/pull/11
-- https://github.com/Novaras/2.3-Test/pull/12
-- https://github.com/Novaras/2.3-Test/pull/13
-- https://github.com/Novaras/2.3-Test/pull/14
-- https://github.com/Novaras/2.3-Test/pull/15
+- mvettes damage vs collectors: https://github.com/Novaras/2.3-Test/pull/9
+- hw1 needs Fighter Drive to build scouts: https://github.com/Novaras/2.3-Test/pull/10
+- EMP tweaks (also detailed below): https://github.com/Novaras/2.3-Test/pull/11
+- repair vette slight damage nerf: https://github.com/Novaras/2.3-Test/pull/12
+- missile corvette missile volume nerf & vgr cruiser tricannon volume buff: https://github.com/Novaras/2.3-Test/pull/13
+- more aggressivly try to re-issue dock on slow injured squads: https://github.com/Novaras/2.3-Test/pull/14
+- fix scouts having bonus ms due to a formation bonus: https://github.com/Novaras/2.3-Test/pull/15
 
 TLDR for emp changes:
 
