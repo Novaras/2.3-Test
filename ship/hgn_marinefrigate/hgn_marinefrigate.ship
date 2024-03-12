@@ -154,7 +154,7 @@ addCustomCode(NewShipType,"data:ship/Hgn_MarineFrigate/Hgn_MarineFrigate.lua",""
 LoadModel(NewShipType,1);
 StartShipHardPointConfig(NewShipType,"Weapon_Top","Hardpoint_Top","Weapon","Innate","Ship","Hgn_VulcanKineticTurretHeavy","","","","","","","","");
 --StartShipWeaponConfig(NewShipType,"Hgn_VulcanKineticTurretHeavy","Weapon_Top","Weapon_Top");
-addShield(NewShipType,"EMP",310,20);
+addShield(NewShipType,"EMP",300,20);
 NewShipType.battleScarCoverage=2
 NewShipType.battleScarBudgetLow = 400
 NewShipType.battleScarBudgetNext = 600

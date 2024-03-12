@@ -163,7 +163,7 @@ addAbility(NewShipType,"CanAttack",1,3,1,0,0.35,1,"Capturer, Frigate, SmallCapit
 addAbility(NewShipType,"GuardCommand",1,3000,500);
 addAbility(NewShipType,"HyperspaceViaGateCommand",1,3,1,0.3);
 addAbility(NewShipType,"RetireAbility",1,0);
-addCustomCode(NewShipType, "data:ship/Hgn_AttackBomber/Hgn_AttackBomber.lua", "", "", "Update_Hgn_AttackBomber", "", "Hgn_AttackBomber", 1)
+addCustomCode(NewShipType, "data:ship/Hgn_AttackBomber/Hgn_AttackBomber.lua", "", "", "Update_Hgn_AttackBomber", "", "Hgn_AttackBomber", 0.7)
 LoadModel(NewShipType,1);
 StartShipWeaponConfig(NewShipType,"Hgn_BombLauncher","Weapon_L","Weapon_L");
 StartShipWeaponConfig(NewShipType,"Hgn_BombLauncher","Weapon_R","Weapon_R");
@@ -171,7 +171,7 @@ StartShipWeaponConfig(NewShipType,"Hgn_AntiShipBombLauncher","Weapon_L","Weapon_
 StartShipWeaponConfig(NewShipType,"Hgn_AntiShipBombLauncher","Weapon_R","Weapon_R");
 StartShipWeaponConfig(NewShipType,"Hgn_AntiSubSystemBombLauncher","Weapon_L","Weapon_L");
 StartShipWeaponConfig(NewShipType,"Hgn_AntiSubSystemBombLauncher","Weapon_R","Weapon_R");
-addShield(NewShipType,"EMP",110,20);
+addShield(NewShipType,"EMP",200,16);
 NewShipType.battleScarCoverage=0
 NewShipType.sobDieTime=2
 NewShipType.sobSpecialDieTime=2

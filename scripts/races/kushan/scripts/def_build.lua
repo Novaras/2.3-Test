@@ -15,7 +15,7 @@ build =
 	{ 
 		Type = 					SubSystem, 
 		ThingToBuild = 			"hw1_production_corvette",
-		RequiredResearch =		"",
+		RequiredResearch =		"FighterDrive",
 		RequiredShipSubSystems =	"",
 		DisplayPriority =		0,
 		DisplayedName =			"$7002",

@@ -1,7 +1,7 @@
 NewShipType = StartShipConfig()
 NewShipType.displayedName="$1500"
 NewShipType.sobDescription="$1501"
-NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 90)
+NewShipType.maxhealth=getShipNum(NewShipType, "maxhealth", 80)
 NewShipType.regentime=0
 NewShipType.minRegenTime=0
 NewShipType.sideArmourDamage = getShipNum(NewShipType, "sideArmourDamage", 1.0)
@@ -93,7 +93,7 @@ NewShipType.antiCorvetteValue=0
 NewShipType.antiFrigateValue=0
 NewShipType.totalValue=0.33
 NewShipType.buildCost=300
-NewShipType.buildTime=25
+NewShipType.buildTime=27
 NewShipType.buildPriorityOrder=10
 NewShipType.retaliationRange=4800
 NewShipType.retaliationDistanceFromGoal=160
@@ -165,7 +165,7 @@ addAbility(NewShipType,"HyperspaceViaGateCommand",1,3,1,0.3);
 addAbility(NewShipType,"SensorPing",0,1,10,2.5);
 addAbility(NewShipType,"SpecialAttack",0,"EMP");
 addAbility(NewShipType,"RetireAbility",1,0);
-addCustomCode(NewShipType, "data:ship/Hgn_Scout/Hgn_Scout.lua", "", "", "Update_Hgn_Scout", "", "Hgn_Scout", 1)
+addCustomCode(NewShipType, "data:ship/Hgn_Scout/Hgn_Scout.lua", "", "", "Update_Hgn_Scout", "", "Hgn_Scout", 0.7)
 LoadModel(NewShipType,1);
 StartShipWeaponConfig(NewShipType,"Hgn_Peashooter","Weapon_Autogun","Weapon_Autogun");
 StartShipWeaponConfig(NewShipType,"Hgn_SmallEMP","Weapon_Autogun","Fire");
