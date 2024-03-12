@@ -16,5 +16,5 @@ TLDR for emp changes:
 | Hgn  | HP: `110` -> `200`, regen time: `20` -> `16` | HP: `110` regen time: `20` | HP: `310` -> `300` regen time: `20` | `500` -> `480` | 5 Hits -> 7 Hits        | 5 Hits                | 11 Hits -> 10 Hits          |
 | Vgr  | HP: `110` -> `200`, regen time: `20` -> `16` | HP: `110` regen time: `20` | HP: `310` -> `300` regen time: `20` | `500` -> `480` | 5 Hits -> 7 Hits        | 5 Hits                | 11 Hits -> 10 Hits          |
 
-\*: Scouts have `200` HP, taking 7 hits to stun
-\*\*: The Hgn Defense Field Frigate only has `270` HP, taking only 9 hits to stun
+- \* Scouts have `200` HP, taking 7 hits to stun
+- \*\* The Hgn Defense Field Frigate only has `270` HP, taking only 9 hits to stun
