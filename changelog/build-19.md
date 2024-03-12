@@ -18,3 +18,5 @@ TLDR for emp changes:
 
 - \* Scouts have `200` HP, taking 7 hits to stun
 - \*\* The Hgn Defense Field Frigate only has `270` HP, taking only 9 hits to stun
+
+Vgr's cooldown also went up from `70s` -> `80s`, and Hgns from `70s` -> `75s`.
