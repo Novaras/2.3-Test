@@ -44,7 +44,7 @@ build =
 	{
 		Type =					Ship,
 		ThingToBuild =			"Tai_Scout",
-		RequiredResearch =		"",
+		RequiredResearch =		"FighterDrive",
 		RequiredShipSubSystems =	"",
 		DisplayPriority =		10,
 		DisplayedName =			"$11000",
