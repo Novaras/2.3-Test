@@ -1,12 +1,12 @@
 -- This file is generated automatically by the Relic Audio Tool
 
 version = 4
-volume = 0.9
+volume = 1.0
 maxPolyphony = 8
 envelope = {
   {
     distance = 0.000000,
-    volume = 0.995000,
+    volume = 1.0,
     reverb = 0.000000,
     duration = 0,
     equalizer = {
@@ -21,8 +21,8 @@ envelope = {
     }
   },
   {
-    distance = 800.000000,
-    volume = 0.70000,
+    distance = 1200.0,
+    volume = 0.85,
     reverb = 0.000000,
     duration = 0,
     equalizer = {
@@ -37,8 +37,8 @@ envelope = {
     }
   },
   {
-    distance = 1916.666626,
-    volume = 0.55000,
+    distance = 3000.0,
+    volume = 0.500000,
     reverb = 0.000000,
     duration = 0,
     equalizer = {
@@ -48,13 +48,13 @@ envelope = {
               1.000000,
               1.000000,
               1.000000,
-              0.810000,
-              0.770000,
+              1.000000,
+              1.000000,
     }
   },
   {
-    distance = 3666.666748,
-    volume = 0.30000,
+    distance = 6000.0,
+    volume = 0.250000,
     reverb = 0.000000,
     duration = 0,
     equalizer = {
@@ -62,15 +62,15 @@ envelope = {
               1.000000,
               1.000000,
               1.000000,
-              0.890000,
-              0.700000,
-              0.690000,
-              0.670000,
+              0.870000,
+              0.760000,
+              0.790000,
+              0.740000,
     }
   },
   {
-    distance = 8000.000000,
-    volume = 0.000000,
+    distance = 8000.0,
+    volume = 0.200000,
     reverb = 0.000000,
     duration = 0,
     equalizer = {
@@ -78,8 +78,8 @@ envelope = {
               1.000000,
               1.000000,
               1.000000,
-              0.000000,
-              0.000000,
+              0.250000,
+              0.170000,
               0.000000,
               0.000000,
     }
