@@ -157,7 +157,7 @@ StartShipWeaponConfig(NewShipType,"Vgr_ConcussionMissileLauncherFrigateAssault",
 --StartShipWeaponConfig(NewShipType,"Vgr_FlechetteCannonAssaultFrigateBottom","Weapon_Bottom","Weapon_Bottom");
 --StartShipWeaponConfig(NewShipType,"Vgr_FlechetteCannonAssaultFrigateLeft","Weapon_Left","Weapon_Left");
 --StartShipWeaponConfig(NewShipType,"Vgr_FlechetteCannonAssaultFrigateRight","Weapon_Right","Weapon_Right");
-addShield(NewShipType,"EMP",310,20);
+addShield(NewShipType,"EMP",300,20);
 NewShipType.battleScarCoverage=2
 NewShipType.battleScarBudgetLow = 400
 NewShipType.battleScarBudgetNext = 600

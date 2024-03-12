@@ -150,7 +150,7 @@ addAbility(NewShipType,"RetireAbility",1,0);
 addCustomCode(NewShipType,"data:ship/Hgn_IonCannonFrigate/Hgn_IonCannonFrigate.lua","","","Update_Hgn_IonCannonFrigate","","Hgn_IonCannonFrigate",4)
 LoadModel(NewShipType,1);
 StartShipWeaponConfig(NewShipType,"Hgn_IonCannon","Weapon_Top","Fire");
-addShield(NewShipType,"EMP",310,20);
+addShield(NewShipType,"EMP",300,20);
 NewShipType.battleScarCoverage=2
 NewShipType.battleScarBudgetLow = 400
 NewShipType.battleScarBudgetNext = 600
