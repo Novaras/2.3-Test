@@ -20,3 +20,9 @@ TLDR for emp changes:
 - \*\* The Hgn Defense Field Frigate only has `270` HP, taking only 9 hits to stun
 
 Vgr's cooldown also went up from `70s` -> `80s`, and Hgns from `70s` -> `75s`.
+
+---
+
+Also check out this volume fix for Vaygr:
+
+https://www.youtube.com/watch?v=gaylqFlaXfw
