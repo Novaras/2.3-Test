@@ -1,3 +1,5 @@
+-- vgr missile vette's missile for anything not a strikecraft
+
 StartWeaponConfig(NewWeaponType,"Fixed","Missile","Vgr_CorvetteSmallMissile","Normal",40,2000*1.1,0,0,0,2,1,0,0,7.0,0,0,1,0,0,0,0.1,"Normal",0,0,0);
 AddWeaponResult(NewWeaponType,"Hit","SpawnWeaponFire","Target",0,0,"Vgr_CorvetteSmallMissileBurst");
 AddWeaponResult(NewWeaponType,"Miss","SpawnWeaponFire","Target",0,0,"Vgr_CorvetteSmallMissileBurst");
@@ -13,7 +15,8 @@ setPenetration(NewWeaponType,5,1,
 {PlanetKillerArmour=0},
 {SwarmerArmor=0.10},
 {SpaceMineArmor=1},
-{ResArmour=0.7});
+{ResArmour=0.7},
+{SuperUtilityArmour = 0.85});
 setAccuracy(NewWeaponType,1,
 {Utility=1.0},
 {Swarmer=0.01},
