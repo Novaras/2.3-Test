@@ -1,6 +1,6 @@
-StartWeaponConfig(NewWeaponType,"Fixed","Missile","Hgn_ClusterTorpedoA","Special Attack",120,4250,0,0,0,0,1,0,1,15,0,0,0,0,0,0,0.1,"Normal",0,0,0);
+StartWeaponConfig(NewWeaponType,"Fixed","Missile","Hgn_ClusterTorpedoA","Special Attack",120,4150,0,0,0,0,1,0,1,15,0,0,0,0,0,0,0.1,"Normal",0,0,0);
 AddWeaponResult(NewWeaponType,"Hit","DamageHealth","Target",380,380,"");
-setPenetration(NewWeaponType,5,0.5,
+setPenetration(NewWeaponType,10,0.5,
 {LightArmour=0.8},
 {LightArmour_hw1=0.8},
 {ResArmour=0.6},
@@ -13,6 +13,7 @@ setPenetration(NewWeaponType,5,0.5,
 {unarmoured=0.02*3},
 {unarmoured_hw1=0.02*3});
 setAccuracy(NewWeaponType,0,
+{Swarmer=0.5},
 {Fighter=0.5},
 {Fighter_hw1=0.5},
 {Corvette=1},

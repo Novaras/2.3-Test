@@ -2,6 +2,10 @@
 StartWeaponConfig(NewWeaponType,"Fixed","Missile","Vgr_HeavyMissile","Normal",40,4500,0,0,0,0,1,0,0,20,0,0,1,1,0,0,0.1,"Normal",0,0,0);
 AddWeaponResult(NewWeaponType,"Hit","DamageHealth","Target",2700,2700,"");
 setPenetration(NewWeaponType,20,1,
+{Unarmoured=0.01}, -- 2700 * 0.01 = 27 vs fighters
+{Unarmoured_hw1=0.01},
+{LightArmour=0.1},
+{LightArmour_hw1=0.1}, -- 2700 * 0.1 = 270 vs corvettes (ref: pulsar base HP is [480, 720])
 {PlanetKillerArmour=0},
 {SwarmerArmor=0.10},
 {SpaceMineArmor=1},

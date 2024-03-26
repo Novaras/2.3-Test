@@ -1,3 +1,7 @@
+-- vgr missile vette's anti-strikecraft missile
+-- it has 0 default accuracy so only exceptions against strike families lets it fire on them
+
+
 StartWeaponConfig(NewWeaponType,"Fixed","Missile","Vgr_CorvetteAntiFighterMissile","Normal",40,2000*1.1,0,0,0,2,1,0,0,7.0,0,0,1,0,0,0,0.1,"Normal",0,0,0);
 AddWeaponResult(NewWeaponType,"Hit","SpawnWeaponFire","Target",0,0,"Vgr_CorvetteMediumMissileBurst");
 AddWeaponResult(NewWeaponType,"Miss","SpawnWeaponFire","Target",0,0,"Vgr_CorvetteMediumMissileBurst");

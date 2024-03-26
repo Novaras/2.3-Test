@@ -1,4 +1,4 @@
-StartWeaponConfig(NewWeaponType,"AnimatedTurret","Bullet","Kinetic_Small","Normal",2100,2500,0,0,0,0,1,1,1,1.9,0,0,1,0,60,60,0.1,"Normal",1,0,0);
+StartWeaponConfig(NewWeaponType,"AnimatedTurret","Bullet","Kinetic_Small","Normal",2200,2500,0,0,0,0,1,1,1,1.5,0,0,1,0,60,60,0.1,"Normal",1,0,0);
 AddWeaponResult(NewWeaponType,"Hit","DamageHealth","Target",95,95,"");
 setPenetration(NewWeaponType,5,1,
 {Unarmoured=0.50},
@@ -14,15 +14,15 @@ setPenetration(NewWeaponType,5,1,
 {SwarmerArmor=0.10},
 {SpaceMineArmor=1});
 setAccuracy(NewWeaponType,1,
-{Swarmer=0.01},
+{Swarmer=0.8},
 {SpaceMine=0.2},
 {Torpedo=0},
 {HeavyMissile=0},
 {SmallMissile=0},
 {Fighter=0.72},
-{Fighter_hw1=0.72},
-{Corvette=0.14},
-{Corvette_hw1=0.14},
+{Fighter_hw1=0.8},
+{Corvette=0.25},
+{Corvette_hw1=0.3},
 {munition=0.1},
 {Frigate=0.8},
 {SmallCapitalShip=0.8},
