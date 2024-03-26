@@ -1,1 +1,1 @@
-PlayersPatchBuildNumber = " + 2.3 Players Patch | build 19 "
+PlayersPatchBuildNumber = " + 2.3 Players Patch Test | build 20 "
