@@ -30,8 +30,8 @@ NewShipType.defaultStance="Aggressive"
 NewShipType.holdSlots=2
 NewShipType.mass=10
 NewShipType.collisionMultiplier=1
-NewShipType.thrusterMaxSpeed=300 * 0.77
-NewShipType.mainEngineMaxSpeed=300
+NewShipType.thrusterMaxSpeed=310 * 0.77
+NewShipType.mainEngineMaxSpeed=310
 NewShipType.rotationMaxSpeed=105
 NewShipType.thrusterAccelTime=3
 NewShipType.thrusterBrakeTime=1
@@ -167,7 +167,7 @@ addAbility(NewShipType,"RetireAbility",1,0);
 addCustomCode(NewShipType, "data:ship/Vgr_LanceFighter/Vgr_LanceFighter.lua", "", "", "Update_Vgr_Lance_Fighter", "", "Vgr_LanceFighter", 0.7)
 LoadModel(NewShipType,1);
 StartShipWeaponConfig(NewShipType,"Vgr_LightPlasmaLance","Weapon_BigGun","Weapon_BigGun");
-addShield(NewShipType,"EMP",200,16);
+addShield(NewShipType,"EMP",190,17);
 NewShipType.battleScarCoverage=0
 NewShipType.sobDieTime=2
 NewShipType.sobSpecialDieTime=2
