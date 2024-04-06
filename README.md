@@ -14,6 +14,17 @@
 4. Pick the '2.3 Test' mod from the modlist in the launcher
 5. Done
 
+### Community
+
+The main community playing competetive HWRM multiplayer is found on the [Homeworld official Discord server](https://discord.gg/homeworld).
+
+You can find plenty of YouTube content from various channels:
+
+- [Fear](https://www.youtube.com/@fear4658): multiplayer & modding content
+- [Cloaked](https://www.youtube.com/@Cloaked): multiplayer content
+- [Tyguy](https://www.youtube.com/@tyguy6827): multiplayer content
+- [Xenofix](https://www.youtube.com/@xenofix9453): multiplayer content
+
 ### Changelogs
 
 See them [here](https://github.com/Novaras/2.3-Test/tree/main/changelog).
