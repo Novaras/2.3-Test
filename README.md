@@ -8,7 +8,7 @@
 
 See them [here](https://github.com/Novaras/2.3-Test/tree/main/changelog).
 
-### Authors
+### Authors/Contributors
 
 2.3 Test is 99.9% Fear/Novaras (except the maps), however it builds on the main 2.3 Players Patch mod. As such, all credits there should be considered credits here.
 
