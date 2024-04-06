@@ -6,7 +6,7 @@
 
 ### Changelogs
 
-See them [here](tree/main/changelog)
+See them [here](https://github.com/Novaras/2.3-Test/tree/main/changelog).
 
 ### Authors
 
