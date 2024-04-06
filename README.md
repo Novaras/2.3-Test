@@ -4,6 +4,16 @@
 
 2.3 Test does not make any provisions for singleplayer: the experience will likely be pretty unbalanced as all 2.3 Test changes are focused on multiplayer balancing.
 
+### How to Play
+
+1. Find the mod on Steam Workshop [here](https://steamcommunity.com/sharedfiles/filedetails/?id=1413859511)
+2. Click 'Subscribe'
+3. Steam will automatically download any subscribed Workshop items
+   1. When workshop items update, Steam will automatically update your local copy **whenever you re-log, OR if you re-subscribe to the item**
+   2. If your mod is not updating after a patch, try one of the above methods
+4. Pick the '2.3 Test' mod from the modlist in the launcher
+5. Done
+
 ### Changelogs
 
 See them [here](https://github.com/Novaras/2.3-Test/tree/main/changelog).
