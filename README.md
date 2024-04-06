@@ -10,4 +10,6 @@ See them [here](https://github.com/Novaras/2.3-Test/tree/main/changelog).
 
 ### Authors
 
-2.3 Test is 99.9% Fear (Novaras), however it builds on the main 2.3 Players Patch mod. As such, all credits there should be considered credits here.
+2.3 Test is 99.9% Fear/Novaras (except the maps), however it builds on the main 2.3 Players Patch mod. As such, all credits there should be considered credits here.
+
+The maps which come bundled with the mod were mostly made by various community members many years ago, and some are direct ports of maps made for HW2 classic. Most maps come with their own authorship information either in the map file or displayed on the map thumbnail.
