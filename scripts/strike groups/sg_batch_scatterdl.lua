@@ -14,7 +14,7 @@ LayoutMode = "Nodes"
 
 StanceGrouping = "Shape"
 StanceGroupingAg = "Shape"
-StanceGroupingEv = "Subs"
+StanceGroupingEv = "Shape"
 
 UnitLimit = 32
 
