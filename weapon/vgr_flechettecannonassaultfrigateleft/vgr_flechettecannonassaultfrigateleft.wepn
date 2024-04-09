@@ -4,7 +4,7 @@ setPenetration(NewWeaponType,5,1,
 {Unarmoured=0.50},
 {Unarmoured_hw1=0.7},
 {LightArmour=0.3},
-{LightArmour_hw1=0.5},
+{LightArmour_hw1=0.6},
 {MediumArmour=1.0},
 {SuperUtilityArmour = 1.0},
 {HeavyArmour=0.82},
@@ -27,6 +27,7 @@ setAccuracy(NewWeaponType,1,
 {Frigate=0.85},
 {SmallCapitalShip=0.9},
 {BigCapitalShip=0.99},
+{Resource=0.8},
 {ResourceLarge=0.85});
 setAngles(NewWeaponType,0,-180,13,-10,60);
 setMiscValues(NewWeaponType,1.5,0);
