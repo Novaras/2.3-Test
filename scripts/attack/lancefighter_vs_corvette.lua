@@ -61,7 +61,7 @@ Data =
 		},
 		{
 			Type = PickNewTarget,
-			Weighting = 25,
+			Weighting = 10,
 			heatCost = 3,
  			heatThresh = 0,
 			stance = "Ag,Pa",
@@ -208,7 +208,7 @@ Data =
 		},
 		{
 			Type = PickNewTarget,
-			Weighting = 25,
+			Weighting = 10,
 			heatCost = 8,
  			heatThresh = 0,
 			stance = "Ag,Pa",
