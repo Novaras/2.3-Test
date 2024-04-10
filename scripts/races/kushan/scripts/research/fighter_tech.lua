@@ -95,7 +95,7 @@ base_research = {
 		DisplayedName =		"$11506",
 		ShortDisplayedName =	"$11506",
 		DisplayPriority =		15,
-		Description =		"$11507",
+		Description =		"<b>Description:</b> Cloaked Fighter technology enables the Fighter to hide from visual and electronic detection. Excels vs. collectors. \n\n<b>Prerequisites:</b> Fighter Chassis.",
 		Icon = 			Icon_Build,
 		TargetName =		"Kus_CloakedFighter",
 	},

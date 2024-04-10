@@ -10,7 +10,7 @@ base_research = {
 		DisplayedName =		"$11542",
 		ShortDisplayedName =	"$11542",
 		DisplayPriority =		41,
-		Description =		"$11543",
+		Description =		"<b>Description:</b> This massive engine system is required for Destroyers, Heavy Cruisers, and Carriers. \n\n<b>Prerequisites:</b> None.",
 		Icon = 			Icon_Build,
 		TargetName =		"Tai_Carrier",
 	},

@@ -49,7 +49,7 @@ base_research = {
 		DisplayedName =		"$11538",
 		ShortDisplayedName =	"$11538",
 		DisplayPriority =		34,
-		Description =		"$11539",
+		Description =		"<b>Description:</b> Defense field technology is employed by the Field Frigate to block enemy projectiles. \n\n<b>Prerequisites:</b> Capital Ship Chassis.",
 		Icon = 			Icon_Build,
 		TargetName =		"Tai_FieldFrigate",
 	},

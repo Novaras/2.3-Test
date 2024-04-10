@@ -95,7 +95,7 @@ base_research = {
 		DisplayedName =		"$11508",
 		ShortDisplayedName =	"$11508",
 		DisplayPriority =		15,
-		Description =		"$11509",
+		Description =		"<b>Description:</b> Defense Fighters use a magnetic shield to block projectiles, and a fast-tracking lance beam to shoot down enemy missiles and mines. \n\n<b>Prerequisites:</b> Fighter Chassis.",
 		Icon = 			Icon_Build,
 		TargetName =		"Tai_DefenseFighter",
 	},
