@@ -1,6 +1,6 @@
 
 -- static data on the gravwell memgroup (constants etc)
-local GW_MEM_PROTO = {
+GW_MEM_PROTO = {
 	target_types = {
 		"hgn_scout",
 		"hgn_interceptor",
@@ -46,9 +46,9 @@ local GW_MEM_PROTO = {
 	},
 	salvager_types = "kus_salvagecorvette, tai_salvagecorvette",
 	effect_range = 3000,
-	increment_count = 20,
 	glow_animation = "PowerOff",
 	tick_self_damage = 0.0190,
+	abilities_to_disable = { AB_Move, AB_Targeting, AB_Attack, AB_Dock, AB_Custom },
 	tumble_randtable = { -- premade random table
 		0.69,
 		1 / 0.37,
@@ -69,11 +69,13 @@ local GW_MEM_PROTO = {
 GW_MEM = MemGroup.Create('gravwells', GW_MEM_PROTO)
 
 function GW_MEM:Get(group, player_index, ship_id)
-	local gravwell = self:get(ship_id)
+	local gravwell = self:get(ship_id);
+
 	if (gravwell == nil) then
-		gravwell = self:Create(group, player_index, ship_id)
+		gravwell = self:Create(group, player_index, ship_id);
 	end
-	return gravwell
+
+	return gravwell;
 end
 
 --
@@ -85,135 +87,96 @@ end
 -- the methods a gravwell can perform
 function GW_MEM:Create(own_group, player_index, ship_id)
 	local GRAVWELL_PROTO = {
-		own_group = nil,
-		stunnable_ships = SobGroup_CreateAndClear("gravwell-" .. ship_id .. "-stunnable"),
-		old_stunnable_ships = SobGroup_CreateAndClear("gravwell-" .. ship_id .. "-stunnable-old"),
-		range_groups = {
-			already_passed = SobGroup_CreateAndClear("gravwell-" .. ship_id .. "-rg-ap"),
-			this_range = SobGroup_CreateAndClear("gravwell-" .. ship_id .."-rg-tr"),
-			todo = SobGroup_CreateAndClear("gravwell-" .. ship_id .. "-td")
-		}
+		own_group = own_group,
+		player_index = player_index,
+		ship_id = ship_id,
+		previously_stunned = SobGroup_CreateAndClear("gravwell-" .. ship_id .. "-previously-stunned"),
 	} -- instance static data/methods
 	
 	-- should be called once, essentially a housekeep for the gravwell
 	-- plays glow fx, applies self damage, and saves the stunned group for the next pass
 	function GRAVWELL_PROTO:SelfEffects()
-		-- print("[" .. self.id .. "]:SelfEffects start")
-		FX_StartEvent(self.own_group, "PowerUp")
-		SobGroup_TakeDamage(self.own_group, GW_MEM.tick_self_damage)
-		-- print("[" .. self.id .. "]:SelfEffects end")
-		return self
-	end
-	
-	-- calc which ships are in our radius, save them in the current stunnables group
-	function GRAVWELL_PROTO:CalcStunnableShipsGroup()
-		-- print("[" .. self.id .. "]:CalcStunnableShipsGroup start")
-		local all_ships = Universe_GetAllActiveShips()
-		local ships_in_radius = SobGroup_CreateAndClear("ships-in-radius-" .. self.id)
-		local any_stunnables = SobGroup_FillProximitySobGroup(ships_in_radius, all_ships, self.own_group, GW_MEM.effect_range * 2)
-		if (any_stunnables == 1) then
-			local stunnable_fill = SobGroup_CreateAndClear("temp-stunnable-ships-" .. self.id)
-			for _, ship_type in GW_MEM.target_types do
-				local temp_fill_group = SobGroup_CreateAndClear("acc" .. self.id)
-				SobGroup_FillShipsByType(temp_fill_group, ships_in_radius, ship_type)
-				local is_salvager = SobGroup_AreAnyOfTheseTypes(temp_fill_group, GW_MEM.salvager_types)
-				if (is_salvager ~= 1) then
-					SobGroup_SobGroupAdd(stunnable_fill, temp_fill_group)
-				end
-			end
-			SobGroup_Overwrite(self.stunnable_ships, stunnable_fill)
-		end
-		-- print("[" .. self.id .. "]:CalcStunnableShipsGroup end")
-		return self
+		-- print("[" .. self.id .. "]:SelfEffects start");
+		FX_StartEvent(self.own_group, "PowerUp");
+		SobGroup_TakeDamage(self.own_group, GW_MEM.tick_self_damage);
+		-- print("[" .. self.id .. "]:SelfEffects end");
 	end
 
-	-- It seems like setting attributes all at once on large sobgroups (or, maybe sobgroups more prone to client desyncing through size?)
-	-- can cause syncing. The old code went out of its way to only apply effects in an incremental spherefill style (like an onion), which I
-	-- gutted assuming it was just a mistake or relic of a previous iteration of the script. This fn goes through ships within 0-effect_range
-	-- in incremental spheres of increasing size, subtract the spheres checked before - this means we are only applying effects to ships on the current
-	-- 'layer' (again, think like an onion). The thickness of these layers is important, since its assumed the entire purpose is to prevent syncs
-	-- on doing stuff to large groups. This is also how ships are freed (stun/unstun and the ranges to iterate through are passable)
-	function GRAVWELL_PROTO:IncrementalStunAndTumble(stun, range_start, range_end, increment_count)
-		-- print("[" .. self.id .. "]:IncrementalStunAndTumble start")
-		if (range_start == nil) then
-			range_start = 0
+	function GRAVWELL_PROTO:CalcStunnableTargets()
+		local all_ships = Universe_GetAllActiveShips();
+
+		local all_in_range = SobGroup_CreateAndClear("gravwell-" .. self.ship_id .. "-in-range");
+		SobGroup_FillProximitySobGroup(all_in_range, all_ships, self.own_group, GW_MEM.effect_range);
+
+		local stunnables = SobGroup_CreateAndClear("gravwell-" .. self.ship_id .. "-stunnables");
+		for _, ship_type in GW_MEM_PROTO.target_types do
+			local ships_of_type = SobGroup_CreateAndClear("gravwell-" .. self.ship_id .. "-ships-of-type-" .. ship_type);
+			SobGroup_FillShipsByType(ships_of_type, all_in_range, ship_type);
+			SobGroup_SobGroupAdd(stunnables, ships_of_type);
 		end
-		if (range_end == nil) then
-			range_end = GW_MEM.effect_range
+
+		print("calced stunnable group containing " .. SobGroup_Count(stunnables) .. " ships");
+
+		return stunnables;
+	end
+
+	function GRAVWELL_PROTO:StunGroup(group, stunned)
+		stunned = stunned or 1;
+
+		local set = mod(stunned + 1, 2); -- stunned = 0? set to 1, otherwise if 1 set to 0
+
+		for _, ability in GW_MEM_PROTO.abilities_to_disable do
+			SobGroup_AbilityActivate(group, ability, set);
 		end
-		if (increment_count == nil) then
-			increment_count = GW_MEM.increment_count
+
+		SobGroup_SetSpeed(group, set);
+	end
+
+	-- tumbles the ships in `group`, as a function of their positions
+	function GRAVWELL_PROTO:TumbleGroup(group, tumble)
+		-- print("[" .. self.id .. "]:TumbleGroup start")#
+		if (not Vec3) then
+			dofilepath("data:scripts/lib/vec3.lua");
 		end
-		if (stun == nil) then
-			stun = 1
+
+		if (not SobGroup_Split) then
+			dofilepath("data:scripts/lib/sobgroup_util.lua");
 		end
-		local inner_exclude = SobGroup_CreateAndClear("gravwell-inner-exclude-" .. self.id)
-		local range_sans_inner = SobGroup_CreateAndClear("gravwell-range-sans-inner-" .. self.id)
-		for range = range_start, range_end, range_end / increment_count do
-			-- print("range: [" .. range .. " / " .. range_end .. "]")
-			local got_ships = SobGroup_FillProximitySobGroup(self.range_groups.this_range, self.stunnable_ships, self.own_group, range)
-			if (range_start > 0) then
-				-- print("try excluding from 0 - " .. range_start)
-				SobGroup_FillProximitySobGroup(inner_exclude, self.stunnable_ships, self.own_group, range_start) -- 0 to inner
-				SobGroup_FillSubstract(range_sans_inner, self.range_groups.this_range, inner_exclude) -- exclude inner range from search
-				-- print("rg-tr: " .. SobGroup_Count(self.range_groups.this_range))
-				-- print("range-sans-inner: " .. SobGroup_Count(range_sans_inner))
-				SobGroup_Overwrite(self.range_groups.this_range, range_sans_inner)
-				-- print("rg-tr': " .. SobGroup_Count(self.range_groups.this_range))
-			end
-			if (got_ships == 1) then
-				-- print("got ships")
-				SobGroup_FillSubstract(self.range_groups.todo, self.range_groups.this_range, self.range_groups.already_passed)
-				if (SobGroup_Count(self.range_groups.todo) >= 1) then
-					-- print("ok, try to affect " .. SobGroup_Count(self.range_groups.todo) .. " ships")
-					-- print("stun: " .. stun)
-					-- stun/tumble or unstun/cleartumble the todo group:
-					SobGroup_SetGroupStunned(self.range_groups.todo, stun)
-					if (stun == 1) then
-						self:TumbleGroup(self.range_groups.todo)
-					else
-						SobGroup_ClearTumble(self.range_groups.todo)
+
+		tumble = tumble or 1;
+
+		if (tumble == 1) then
+			local subgroups = SobGroup_Split(group);
+
+			for _, subgroup in subgroups do
+				local tumble_vector = Vec3(SobGroup_GetPosition(subgroup));
+
+				tumble_vector = Vec3:unit(tumble_vector);
+
+				-- for some reason the tumble vector should be capped at `.45`
+				for k, v in tumble_vector do
+					local abs = abs(v);
+					if (abs > 0.45) then
+						-- v <= 1; due to being component of unit vector
+						-- 1 / x < 0.45;
+						-- > 1 / 0.45 = x
+						-- > 1 / 2.[2] < 0.45
+						-- > v / 2.23 < 0.45
+						tumble_vector[k] = v / 2.23;
 					end
 				end
-				SobGroup_SobGroupAdd(self.range_groups.already_passed, self.range_groups.todo)
-				SobGroup_Clear(self.range_groups.todo)
+
+				SobGroup_Tumble(subgroup, tumble_vector);
+
+				FX_PlayEffect("blue_flash", subgroup, 1);
 			end
+		else
+			SobGroup_ClearTumble(group);
 		end
-		SobGroup_Copy(self.old_stunnable_ships, self.range_groups.already_passed)
-		SobGroup_Clear(self.range_groups.already_passed)
-		-- print("[" .. self.id .. "]:IncrementalStunAndTumble end")
-		return self
-	end
 
-	-- applies 'random' multipliers to the pitch/yaw/roll values of the groups tumble vector
-	-- random vals are actually a pregenned list indexed using Universe_GameTime()
-	function GRAVWELL_PROTO:TumbleGroup(group)
-		-- print("[" .. self.id .. "]:TumbleGroup start")
-		local tumble_vector = SobGroup_GetPosition(group)
-		for i = 1, 3 do
-			local spice = GW_MEM.tumble_randtable[GW_MEM.tumble_randtable_index] or 0.5
-			GW_MEM.tumble_randtable_index = modulo(GW_MEM.tumble_randtable_index + 1, getn(GW_MEM))
-			tumble_vector[i] = modulo(tumble_vector[i] * spice, 0.45)
-		end
-		SobGroup_Tumble(group, tumble_vector)
 		-- print("[" .. self.id .. "]:TumbleGroup end")
-		return self
+		return group;
 	end
-
-	-- frees any ships in the old group which aren't in the current group
-	function GRAVWELL_PROTO:FreeEscapedShips()
-		-- print("[" .. self.id .. "]:FreeEscapedShips start")
-		-- basically just free anything outside the effect range
-		local ships_in_double_range = SobGroup_CreateAndClear("gravwell-doublerange-" .. self.id)
-		local any_to_free = SobGroup_FillProximitySobGroup(ships_in_double_range, self.stunnable_ships, self.own_group, GW_MEM.effect_range * 2)
-		if (any_to_free == 1) then
-			self:IncrementalStunAndTumble(0, GW_MEM.effect_range, GW_MEM.effect_range * 2, 5)
-		end
-		-- print("[" .. self.id .. "]:FreeEscapedShips end")
-		return self
-	end
-
-	GRAVWELL_PROTO.own_group = own_group
 
 	return self:set(ship_id, GRAVWELL_PROTO)
 end
@@ -286,10 +249,17 @@ function GW_MEM:Update(CustomGroup, playerIndex, shipID)
 end
 
 function GW_MEM:Destroy(group, player_index, ship_id)
-	self:Get(group, player_index, ship_id)
-		:IncrementalStunAndTumble(0)
-		:FreeEscapedShips()
-	self:delete(ship_id)
+	print("GW " .. ship_id .. " DESTROY")
+
+	local gw = self:Get(group, player_index, ship_id);
+
+	if (gw.previously_stunned) then
+		gw:TumbleGroup(gw.previously_stunned, 0);
+		gw:StunGroup(gw.previously_stunned, 0);
+	end
+
+	self:delete(ship_id);
+	print("END GW " .. ship_id .. " DESTROY")
 end
 
 ---
@@ -300,27 +270,50 @@ function GW_MEM:Start(group, player_index, ship_id)
 	local this_gravwell = self:Get(group, player_index, ship_id)
 	print("GW " .. ship_id .. " START")
 	-- printTbl(this_gravwell)
-	FX_StartEvent(this_gravwell.own_group, "gravwellon_sfx" .. 1)
+	FX_StartEvent(this_gravwell.own_group, "gravwellon_sfx" .. max(1, mod(ship_id, 4)));
 	SobGroup_AbilityActivate(this_gravwell.own_group, AB_Hyperspace, 0)
 	print("END GW " .. ship_id .. " START")
 end
 
 function GW_MEM:Do(group, player_index, ship_id)
-	print("GW " .. ship_id .. " DO")
-	self:Get(group, player_index, ship_id)
-		:SelfEffects()
-		:CalcStunnableShipsGroup()
-		:IncrementalStunAndTumble(1)
-		:FreeEscapedShips()
-	print("END GW " .. ship_id .. " DO")
+	print("GW " .. ship_id .. " DO");
+
+	local gw = self:Get(group, player_index, ship_id);
+
+	gw:SelfEffects();
+
+	local new_stunnables = gw:CalcStunnableTargets();
+
+	-- first clean up the delta from last run, if any
+	if (SobGroup_Count(gw.previously_stunned) > 0) then
+		local stunnables_delta = SobGroup_CreateAndClear("gravwell-" .. gw.ship_id .. "-stunnables-delta");
+		SobGroup_FillSubstract(stunnables_delta, gw.previously_stunned, new_stunnables); -- delta = previous - current
+
+		-- free the ships
+		gw:TumbleGroup(stunnables_delta, 0);
+		gw:StunGroup(stunnables_delta, 0);
+	end
+
+	gw:TumbleGroup(new_stunnables, 1);
+	gw:StunGroup(new_stunnables, 1);
+
+	SobGroup_Overwrite(gw.previously_stunned, new_stunnables);
+
+	print("END GW " .. ship_id .. " DO");
 end
 
 function GW_MEM:Finish(group, player_index, ship_id)
-	print("GW " .. ship_id .. " FINISH")
-	self:Get(group, player_index, ship_id)
-		:IncrementalStunAndTumble(0)
-		:FreeEscapedShips()
-	FX_StartEvent(group, "gravwellcollapse_sfx" .. 1)
-	SobGroup_AbilityActivate(group, AB_Hyperspace, 1)
-	print("END GW " .. ship_id .. " DO")
+	print("GW " .. ship_id .. " FINISH");
+
+	local gw = self:Get(group, player_index, ship_id);
+
+	if (gw.previously_stunned) then
+		gw:TumbleGroup(gw.previously_stunned, 0);
+		gw:StunGroup(gw.previously_stunned, 0);
+	end
+
+	FX_StartEvent(gw.own_group, "gravwellcollapse_sfx" .. max(1, mod(ship_id, 4)));
+	SobGroup_AbilityActivate(group, AB_Hyperspace, 1);
+
+	print("END GW " .. ship_id .. " FINISH");
 end
