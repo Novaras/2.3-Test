@@ -115,7 +115,7 @@ function GW_MEM:Create(own_group, player_index, ship_id)
 			SobGroup_SobGroupAdd(stunnables, ships_of_type);
 		end
 
-		print("calced stunnable group containing " .. SobGroup_Count(stunnables) .. " ships");
+		print(self.ship_id .. " calced stunnable group containing " .. SobGroup_Count(stunnables) .. " ships");
 
 		return stunnables;
 	end
@@ -288,6 +288,8 @@ function GW_MEM:Do(group, player_index, ship_id)
 	if (SobGroup_Count(gw.previously_stunned) > 0) then
 		local stunnables_delta = SobGroup_CreateAndClear("gravwell-" .. gw.ship_id .. "-stunnables-delta");
 		SobGroup_FillSubstract(stunnables_delta, gw.previously_stunned, new_stunnables); -- delta = previous - current
+
+		print(gw.ship_id .. " calced a delta of " .. SobGroup_Count(stunnables_delta) .. " ships");
 
 		-- free the ships
 		gw:TumbleGroup(stunnables_delta, 0);
