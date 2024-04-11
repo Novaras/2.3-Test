@@ -59,7 +59,6 @@ const datfile_data = (await Promise.all(
 	return data;
 }, {});
 
-console.log(datfile_data);
 const locale_lua_tbl_str = Object.entries(datfile_data).reduce((tbl_str, [key, text]) => {
 		if (key && text) {
 			const parsed = text.slice(0, -1).replaceAll(`"`, `\\"`);
