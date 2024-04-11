@@ -25,8 +25,8 @@ NewSubSystemType.typeString="AdvancedArray"
 NewSubSystemType.collateralDamage=100
 NewSubSystemType.inactiveTimeAfterDamage=10
 NewSubSystemType.activateHealthPercentage=0.1
-NewSubSystemType.costToBuild=250
-NewSubSystemType.timeToBuild=35
+NewSubSystemType.costToBuild=350
+NewSubSystemType.timeToBuild=40
 NewSubSystemType.isResearch=0
 NewSubSystemType.visible=1
 LoadHODFile(NewSubSystemType,1);
