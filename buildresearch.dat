@@ -115,7 +115,7 @@ rangestart 7000 7914
 7518	<b>Description:</b> Improves Bomber weapons: \n- Increased damage, especially vs. Carriers and Refineries \n- Massively increased damage against subsystems \n- Excellent vs. defense fields
 7208	Imp. Bombs
 7519	Electro-Magnetic Pulse
-7520	<b>Description:</b> Allows Scouts to fire a EMP attack that can overload and stun enemy ships for a limited time. \n\nSeveral EMP detonations must land simultaneously to overwhelm the target. \n\n<b>Prerequisites:</b> Research Module.
+7520	<b>Description:</b> Allows Scouts to fire a EMP attack that can overload and stun enemy ships for a limited time. Several EMP detonations must land simultaneously. \n\n<b>Prerequisites:</b> Research Module.
 7209	EMP
 7521	Defense Field
 7522	<b>Description:</b> Unlocks the Defense Field Frigate. When activated, the Defense Field protects friendly ships from most attacks. \n\n<b>Prerequisites:</b> Advanced Research Module and Frigate Facility.
@@ -434,7 +434,7 @@ rangestart 7000 7914
 7731	<b>Description:</b> Improves Bomber weapons: \n- Increased damage, especially vs. Carriers and Refineries \n- Massively increased damage against subsystems \n- Excellent vs. defense fields
 7313	Imp. Bombs
 7732	Scout Electro-Magnetic Pulse
-7734	<b>Description:</b> Allows Scouts to fire a EMP attack that can overload and stun enemy ships for a limited time. \n\nSeveral EMP detonations must land simultaneously to overwhelm the target. \n\n<b>Prerequisites:</b> Research Module and Fighter Facility.
+7734	<b>Description:</b> Allows Scouts to fire a EMP attack that can overload and stun enemy ships for a limited time. Several EMP detonations must land simultaneously. \n\n<b>Prerequisites:</b> Research Module.
 7314	EMP
 7321	Lvl 1 Flagship
 7322	Lvl 2 Flagship
