@@ -92,14 +92,14 @@ NewShipType.antiFighterValue=0
 NewShipType.antiCorvetteValue=0
 NewShipType.antiFrigateValue=0
 NewShipType.totalValue=5
-NewShipType.buildCost=600
-NewShipType.buildTime=45
+NewShipType.buildCost=500
+NewShipType.buildTime=42
 NewShipType.buildPriorityOrder=10
 NewShipType.retaliationRange=5500
 NewShipType.retaliationDistanceFromGoal=160
 NewShipType.visualRange=1000
-NewShipType.prmSensorRange=5400
-NewShipType.secSensorRange=6750
+NewShipType.prmSensorRange=6000
+NewShipType.secSensorRange=6500
 NewShipType.detectionStrength=1
 NewShipType.TOIcon="Square"
 NewShipType.TOScale=1
@@ -164,8 +164,8 @@ addAbility(NewShipType,"CanAttack",1,1,0,0,0.35,0.90,"Fighter, Fighter_hw1, Corv
 {Frigate="flyround_CommandVette"});
 LoadModel(NewShipType,1);
 addShield(NewShipType,"EMP",110,20);
-AddShipMultiplier(NewShipType,"WeaponAccuracy","OwnShipsWithinRadiusExcludingThisShip","Linear",1.07,1.07,2200);
-AddShipMultiplier(NewShipType,"WeaponDamage","OwnShipsWithinRadiusExcludingThisShip","Linear",1.07,1.07,2200);
+AddShipMultiplier(NewShipType,"WeaponAccuracy","OwnShipsWithinRadiusExcludingThisShip","Linear",1.07,1.07,2300);
+AddShipMultiplier(NewShipType,"WeaponDamage","OwnShipsWithinRadiusExcludingThisShip","Linear",1.07,1.07,2300);
 StartShipWeaponConfig(NewShipType,"Vgr_CommandGun","Weapon_Gun","")
 NewShipType.battleScarCoverage=1
 NewShipType.battleScarBudgetLow = 400

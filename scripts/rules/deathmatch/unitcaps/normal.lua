@@ -15,7 +15,7 @@ supplyLimit("CloakedFighters", 20);
 supplyLimit("Corvette", 42);
 
 supplyLimit("MinelayerCorvette",5);
-supplyLimit("CommandCorvette",2);
+supplyLimit("CommandCorvette",3);
 supplyLimit("SalvageCorvette",14);
 --
 -- Vaygr FamilySupplyOverride Corvette 56

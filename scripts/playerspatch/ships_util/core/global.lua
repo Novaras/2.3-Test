@@ -16,6 +16,52 @@ function SobGroup_Overwrite(target_group, incoming_group)
 	SobGroup_SobGroupAdd(target_group, incoming_group)
 end
 
+
+--- Creates a new sobgroup if one doesn't exist, then clears the group to ensure the group referenced by the return string is clear.
+---@param group_name string
+---@return string
+function SobGroup_Fresh(group_name)
+	SobGroup_CreateIfNotExist(group_name);
+	SobGroup_Clear(group_name);
+	return group_name;
+end
+
+--- Creates a new SobGroup, named with `new_name`, or '<original-name>-clone', if a new name is not provided for the group.
+---@param original string
+---@param new_name? string
+---@return string
+function SobGroup_Clone(original, new_name)
+	new_name = new_name or (original .. "-clone");
+	SobGroup_Fresh(new_name);
+	SobGroup_SobGroupAdd(new_name, original);
+	return new_name;
+end
+
+--- _Splits_ a given `group` into a table of subgroups. The size of the subgroups is given by `granularity`.
+---
+---@param group string
+---@param granularity? integer
+---@return string[]
+function SobGroup_Split(group, granularity)
+	granularity = granularity or 1;
+
+	if (SobGroup_Count(group) <= granularity) then -- fast return
+		local subgroup = SobGroup_Clone(group);
+		return { [1] = subgroup };
+	end
+
+	local subgroups = {};
+
+	for i = 0, SobGroup_Count(group), granularity do
+		local subgroup = SobGroup_Fresh(group .. "-subgroup-" .. i);
+		SobGroup_FillShipsByIndexRange(subgroup, group, i, granularity);
+		subgroups[i + 1] = subgroup;
+	end
+
+	return subgroups;
+end
+
+
 -- Disable scuttle while a captured unit is being dropped off by salvage corvettes
 function SobGroup_NoSalvageScuttle(CustomGroup)
 	SobGroup_AbilityActivate(CustomGroup, AB_Scuttle, 1 - SobGroup_IsDoingAbility(CustomGroup, AB_Dock))
