@@ -2,39 +2,42 @@ StartWeaponConfig(NewWeaponType,"AnimatedTurret","Bullet","Kinetic_Small","Norma
 AddWeaponResult(NewWeaponType,"Hit","DamageHealth","Target",95,95,"");
 setPenetration(NewWeaponType,5,1,
 {Unarmoured=0.50},
-{Unarmoured_hw1=1.0},
-{LightArmour=1.0*1.114},
-{LightArmour_hw1=1.7},
+{Unarmoured_hw1=0.7},
+{LightArmour=0.3},
+{LightArmour_hw1=0.6},
 {MediumArmour=1.0},
 {SuperUtilityArmour = 1.0},
 {HeavyArmour=0.82},
 {DestroyerArmour = 0.82},
-{ResArmour=0.60},
+{ResArmour=0.50},
 {PlanetKillerArmour=0},
-{SwarmerArmor=0.10},
+{SwarmerArmor=0.50},
 {SpaceMineArmor=1});
 setAccuracy(NewWeaponType,1,
 {Swarmer=0.8},
-{SpaceMine=0.2},
+{SpaceMine=0.7},
 {Torpedo=0},
 {HeavyMissile=0},
 {SmallMissile=0},
-{Fighter=0.72},
-{Fighter_hw1=0.8},
-{Corvette=0.25},
-{Corvette_hw1=0.3},
+{Fighter=0.4},
+{Fighter_hw1=0.4},
+{Corvette=0.5},
+{Corvette_hw1=0.6},
 {munition=0.1},
-{Frigate=0.8},
-{SmallCapitalShip=0.8},
-{BigCapitalShip=0.8},
-{ResourceLarge=0.6});
+{Frigate=0.85},
+{SmallCapitalShip=0.9},
+{BigCapitalShip=0.99},
+{Resource=0.8},
+{ResourceLarge=0.85});
 setAngles(NewWeaponType,0,-180,13,-10,60);
 setMiscValues(NewWeaponType,1.5,0);
 addAnimTurretSound(NewWeaponType,"Data:Sound/SFX/ETG/SPECIAL/SPECIAL_ABILITIES_TURRET_ON");
 setDamageFalloff(NewWeaponType, 0.15/2500.0, 0.1);
-setAccuracyFalloff(NewWeaponType, 0.15/2500.0, 0.1);
 setMissProperties(NewWeaponType, 0.02, 0.03, 0.25, 0.35, 0.55, 0.55);
 setSpeedvsAccuracyAgainst(NewWeaponType, 1, 50.0, 1.5, 200, 1.1, 300, 1.0, 487, 1.2, 535, 4.0);
 setLifetimeMult(NewWeaponType, 1.77);
-setBallistics(NewWeaponType,0,0.0);
 setFireMultFactor(NewWeaponType, 1.0);
+
+-- setAccuracyFalloff(NewWeaponType, 0.15/2500.0, 0.1);
+setMissileKiller(NewWeaponType,1);
+setBallistics(NewWeaponType,1,0);
