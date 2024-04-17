@@ -1,26 +1,26 @@
 -- Add the research times to each research option
-doscanpath("data:ui", "playerspatch_ui_util.lua")
-if GetProductionTimeSetting() == 2 then
+doscanpath("data:ui", "playerspatch_ui_util.lua");
+
+if (GetProductionTimeSetting() == 2) then
 
 	--Check locale
-	if GetProductionTimeSetting() == 2 then --English
-		doscanpath("data:Scripts/Productiontimes", "LocaleEnglish.lua")
-	end
+	for i, research_item in research do
+		local upgrade_value_str = "";
 
-	for i,e in research do
-		upVal = ""
-		if e.UpgradeValue then
-			pc = e.UpgradeValue * 100 - 100
-			upVal = "\n<b>Value:</b> "
-			if pc > 0 then
-				upVal = upVal .. "+"
+		if (research_item.UpgradeValue) then
+			percent_change = research_item.UpgradeValue * 100 - 100;
+			upgrade_value_str = "\n<b>Value:</b> ";
+
+			if (percent_change > 0) then
+				upgrade_value_str = upgrade_value_str .. "+"
 			end
-			upVal = upVal .. pc .. "% "
+
+			upgrade_value_str = upgrade_value_str .. percent_change .. "% ";
 		end
-		
-		locLong = localization[e.Description]
-		if locLong then
-			research[i].Description = locLong .. "  \n" .. upVal .. "\n<b>Base Time:</b> " .. e.Time .. "s"
+
+		local locale_description = localization[research_item.Description];
+		if (locale_description) then
+			research[i].Description = locale_description .. "  \n" .. upgrade_value_str .. "\n<b>Base Time:</b> " .. research_item.Time .. "s";
 		end
 	end
 end

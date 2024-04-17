@@ -1,0 +1,16 @@
+{
+  "name": "dev",
+  "version": "0.0.1",
+  "description": "",
+  "main": "build-times.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cli-progress": "^3.12.0",
+    "glob": "^10.3.12"
+  }
+}
