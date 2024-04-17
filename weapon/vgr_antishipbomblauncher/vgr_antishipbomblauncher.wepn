@@ -1,6 +1,7 @@
 StartWeaponConfig(NewWeaponType,"AnimatedTurret","Bullet","Plasma_Bomb","Special Attack",1800,2000,0,0,0,0,1,1,1,0.7,1,2,1,0,260,40,0.1,"Normal",0,0,0);
-AddWeaponResult(NewWeaponType,"Hit","DamageHealth","Target",115,115,"");
-setPenetration(NewWeaponType,5,1,
+setMagneticFieldPenetration(NewWeaponType,-900,{MagneticField,-900});
+AddWeaponResult(NewWeaponType,"Hit","DamageHealth","Target",120,120,"");
+setPenetration(NewWeaponType,50,1,
 {TurretArmour=0.60},
 {ResArmour=0.17},
 {PlanetKillerArmour=0},
@@ -27,7 +28,7 @@ setAccuracy(NewWeaponType,1,
 {Corvette=0.20},
 {Corvette_hw1=0.225},
 {munition=0.05},
-{Frigate=0.70},
+{Frigate=0.77},
 {SmallCapitalShip=0.84},
 {BigCapitalShip=0.84},
 {ResourceLarge=0.6});

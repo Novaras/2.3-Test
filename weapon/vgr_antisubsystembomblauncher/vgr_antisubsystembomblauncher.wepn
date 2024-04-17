@@ -1,6 +1,7 @@
 StartWeaponConfig(NewWeaponType,"AnimatedTurret","Bullet","Improved_Plasma_Bomb","Special Attack",1800,2000,0,0,0,0,1,1,1,2.5,0,0,1,0,260,40,0.1,"Normal",0,0,0);
+setMagneticFieldPenetration(NewWeaponType,-900,{MagneticField,-900});
 AddWeaponResult(NewWeaponType,"Hit","DamageHealth","Target",195,195,"");
-setPenetration(NewWeaponType,5,0,
+setPenetration(NewWeaponType,50,0,
 {TurretArmour=0.4},
 {ResArmour=0.2},
 {PlanetKillerArmour=0},
