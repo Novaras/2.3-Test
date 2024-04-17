@@ -1,20 +1,26 @@
 -- Add the build times to each build option
-doscanpath("data:ui", "playerspatch_ui_util.lua")
-if GetProductionTimeSetting() == 2 then
-	doscanpath("data:Scripts/Productiontimes", "buildtimes.lua")
+doscanpath("data:ui", "playerspatch_ui_util.lua");
 
-	--Check locale
-	if GetProductionTimeSetting() == 2 then --English
-		doscanpath("data:Scripts/Productiontimes", "LocaleEnglish.lua")
-	end
-	
-	for i,e in build do
-		if e.Description and e.ThingToBuild then
-			loc = localization[e.Description]
-			buildtime = buildtimes[e.ThingToBuild]
-			if loc and buildtime then
-				-- The color code at the end is for the build menu to reset the color of the units queued
-				build[i].Description = loc .. "  \n\n<b>Base Time:</b> " .. buildtime .. "s"
+local prod_time_setting = GetProductionTimeSetting();
+print("applybuildtimes.lua");
+print("setting value is " .. prod_time_setting)
+
+if prod_time_setting == 2 then
+	dofilepath("data:scripts/productiontimes/buildtimes.lua");
+
+	print("APPLYING BUILD TIMES...");
+
+	dofilepath("data:scripts/productiontimes/localeenglish.lua");
+
+	for i, build_item in build do
+		if (build_item.Description and build_item.ThingToBuild) then
+			local build_time = buildtimes[build_item.ThingToBuild];
+			if build_time then
+				local locale_description = localization[build_item.Description]
+
+				build[i].Description = locale_description .. "  \n\n<b>Base Time:</b>  " .. build_time .. "s";
+
+				print("description set to " .. build[i].Description);
 			end
 		end
 	end
