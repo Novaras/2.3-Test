@@ -112,7 +112,7 @@ rangestart 7000 7914
 7516	<b>Description:</b> Allows Torpedo Frigates and Destroyers to fire improved Anti-Capital Ship torpedoes. \n\n<b>Prerequisites:</b> Research Module and Frigate Facility.
 7207	Imp. Torpedoes
 7517	Improved Bombs
-7518	<b>Description:</b> Allows Bombers to launch anti-subsystem bombs. \n\n<b>Prerequisites:</b> Research Module.
+7518	<b>Description:</b> Improves Bomber weapons: \n- Increased damage, especially vs. Carriers and Refineries \n- Massively increased damage against subsystems \n- Excellent vs. defense fields
 7208	Imp. Bombs
 7519	Electro-Magnetic Pulse
 7520	<b>Description:</b> Allows Scouts to fire a EMP attack that disables enemy ships for a limited time. \n\n<b>Prerequisites:</b> Research Module.
@@ -431,7 +431,7 @@ rangestart 7000 7914
 7727	<b>Description:</b> Allows scouts to "Ping" the mission area, briefly revealing enemy units. \n\n<b>Prerequisites:</b> None.
 7312	Scout Sensors
 7730	Improved Bombs
-7731	<b>Description:</b> Allows Bombers to launch anti-subsystem bombs. \n\n<b>Prerequisites:</b> Research Module and Fighter Facility.
+7731	<b>Description:</b> Improves Bomber weapons: \n- Increased damage, especially vs. Carriers and Refineries \n- Massively increased damage against subsystems \n- Excellent vs. defense fields
 7313	Imp. Bombs
 7732	Scout Electro-Magnetic Pulse
 7734	<b>Description:</b> Allows Scouts to fire a EMP attack that disables enemy ships for a limited time. \n\n<b>Prerequisites:</b> Research Module.

@@ -3,6 +3,8 @@ doscanpath("data:ui", "playerspatch_ui_util.lua");
 
 if (GetProductionTimeSetting() == 2) then
 
+	doscanpath("data:Scripts/Productiontimes", "LocaleEnglish.lua");
+
 	--Check locale
 	for i, research_item in research do
 		local upgrade_value_str = "";
