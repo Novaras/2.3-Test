@@ -13,3 +13,7 @@ Changelog: https://github.com/Novaras/2.3-Test/tree/main/changelog
 Some history is missing due to the long winding history of this project.
 
 2.3 Test was originally used for testing patches before their deployment to the main 2.3 mod. However, due to a convoluted history, 2.3 Test is now a standalone mod which is the primary mod used for multiplayer in HWRM.
+
+Built in (don't also load their standalone Workshop items alongside 2.3 Test):
+- hwrm-anticheat: stops the game running autoexec.lua (and -exec scripts).
+- hwrm-replays: with the -enablerecord launch option, every game is saved and can be watched from Player vs CPU -> Load Recorded Game. Needs the companion tool: https://github.com/Novaras/hwrm-replays
