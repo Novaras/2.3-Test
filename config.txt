@@ -1,0 +1,15 @@
+Title: 2.3 Test
+
+Tags: test
+GameType: HomeworldRM
+ModType: MOD
+BigFilename: 2.3Test.big
+WorkshopID:
+
+Description:
+
+Changelog: https://github.com/Novaras/2.3-Test/tree/main/changelog
+
+Some history is missing due to the long winding history of this project.
+
+2.3 Test was originally used for testing patches before their deployment to the main 2.3 mod. However, due to a convoluted history, 2.3 Test is now a standalone mod which is the primary mod used for multiplayer in HWRM.
