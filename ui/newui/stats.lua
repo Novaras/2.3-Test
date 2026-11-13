@@ -42,6 +42,10 @@ Stats = {
 	
 	pixelUVCoords = 1,
 		
+	-- Replays (hwrm-replays): hide Save Recorded (shown by the game with -enablerecord): the companion tool saves every game by
+	-- name, and the button fails for non-host players.
+	onShow = "UI_SetElementVisible('Stats', 'btnSaveRecorded', 0)",
+
 	-- Screens to go to when next is pressed
 	onSPSkirmishDone = "GameSetup",
 	onMPDone = "LobbyScreen",

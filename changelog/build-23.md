@@ -1,0 +1,3 @@
+# Build 23
+
+- Includes [hwrm-replays](https://github.com/Novaras/hwrm-replays) ([Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3838739464)): with the `-enablerecord` launch option, every game is saved when it ends (or when you leave it through the in-game menu), and the companion tool from the [hwrm-replays releases](https://github.com/Novaras/hwrm-replays/releases/latest) turns each one into a named replay you can watch from Player vs CPU → Load Recorded Game. The post-game Save Recorded button is hidden (it fails for non-host players). It's built in, so don't also load the standalone hwrm-replays Workshop item alongside 2.3Test. See the README's Replays section for setup and the known crash when a player leaves mid-game.

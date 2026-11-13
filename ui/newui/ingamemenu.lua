@@ -1,3 +1,6 @@
+-- Replays (from hwrm-replays, https://github.com/Novaras/hwrm-replays): every button that leaves the game first snapshots the
+-- recording (SaveRecordedGame(); only does anything with -enablerecord) to playback\recGame-<slot>-<frame>-snapshot.rec, for
+-- the companion tool to turn into a named replay. Retire too: later snapshots of the same game supersede that one.
 dofilepath("data:ui/newui/Styles/HWRM_Style/HWRMDefines.lua")
 dofilepath("data:ui/newui/Styles/HWRM_Style/ControlConstructors.lua")
 
@@ -39,17 +42,17 @@ BTN_LOADGAME_CAMPAIGN	= NewMenuButton("m_btnLoadCampaign",	"$5567",	"$5553",	0,	
 BTN_LOADGAME_RECORDED	= NewMenuButton("m_btnLoadRecorded",	"$5568",	"$5554",	0,	LAYOUT_BUTTONS,	nil,	"FE_LoadGameScreen_Recorded()")
 -- Updated options button
 BTN_OPTIONS				= NewMenuButton("OptionsButton",		"$5569",	"$5555",	0,	LAYOUT_BUTTONS,	nil,	OptionsButton)
-BTN_EXITTOWINDOWS		= NewMenuButton("ExitToWindowsButton",	"$5570",	"$5556",	0,	LAYOUT_BUTTONS,	nil,	"MainUI_UserEvent( eExit )")
-BTN_EXITTOMAINMENU		= NewMenuButton("ExitToMainMenuButton",	"$5571",	"$5557",	0,	LAYOUT_BUTTONS,	nil,	"FE_ExitToMainMenu();")
-BTN_ENDCURRENTGAME		= NewMenuButton("EndGameButton",		"$5579",	"$5558",	0,	LAYOUT_BUTTONS,	nil,	"FE_ExitToMainMenu();")
-BTN_SKIRMISH_STATS		= NewMenuButton("SkirmishButton",		"$5579",	"$5558",	0,	LAYOUT_BUTTONS,	nil,	"FE_Retire(\"MainUI_UserEvent(eMenu)\")")
-BTN_RETIRE				= NewMenuButton("RetireButton",			"$2913",	"$2918",	0,	LAYOUT_BUTTONS,	nil,	"FE_Retire(\"UI_HideScreen(eMenu)\")")
+BTN_EXITTOWINDOWS		= NewMenuButton("ExitToWindowsButton",	"$5570",	"$5556",	0,	LAYOUT_BUTTONS,	nil,	"if (SaveRecordedGame) then SaveRecordedGame() end; MainUI_UserEvent( eExit )")
+BTN_EXITTOMAINMENU		= NewMenuButton("ExitToMainMenuButton",	"$5571",	"$5557",	0,	LAYOUT_BUTTONS,	nil,	"if (SaveRecordedGame) then SaveRecordedGame() end; FE_ExitToMainMenu();")
+BTN_ENDCURRENTGAME		= NewMenuButton("EndGameButton",		"$5579",	"$5558",	0,	LAYOUT_BUTTONS,	nil,	"if (SaveRecordedGame) then SaveRecordedGame() end; FE_ExitToMainMenu();")
+BTN_SKIRMISH_STATS		= NewMenuButton("SkirmishButton",		"$5579",	"$5558",	0,	LAYOUT_BUTTONS,	nil,	"if (SaveRecordedGame) then SaveRecordedGame() end; FE_Retire(\"MainUI_UserEvent(eMenu)\")")
+BTN_RETIRE				= NewMenuButton("RetireButton",			"$2913",	"$2918",	0,	LAYOUT_BUTTONS,	nil,	"if (SaveRecordedGame) then SaveRecordedGame() end; FE_Retire(\"UI_HideScreen(eMenu)\")")
 BTN_RETURNTOGAME		= NewMenuButton("ReturnButton",			"$5573",	"$5559",	0,	LAYOUT_BUTTONS,	"FEButtonStyle1_Alert_Chipped",	"MainUI_UserEvent(eMenu);")
 BTN_NEXTTUTORIAL		= NewMenuButton("m_btnNextTutorial",	"$5574",	"$5560",	0,	LAYOUT_BUTTONS,	nil,	"FE_NextTutorial()")
-BTN_RESTARTTUTORIAL		= NewMenuButton("m_btnRestartTutorial",	"$5575",	"$5561",	0,	LAYOUT_BUTTONS,	nil,	"FE_RestartGame(1)")
-BTN_RESTARTMISSION		= NewMenuButton("m_btnRestartMission",	"$5576",	"$5562",	0,	LAYOUT_BUTTONS,	nil,	"FE_RestartGame(1)")
+BTN_RESTARTTUTORIAL		= NewMenuButton("m_btnRestartTutorial",	"$5575",	"$5561",	0,	LAYOUT_BUTTONS,	nil,	"if (SaveRecordedGame) then SaveRecordedGame() end; FE_RestartGame(1)")
+BTN_RESTARTMISSION		= NewMenuButton("m_btnRestartMission",	"$5576",	"$5562",	0,	LAYOUT_BUTTONS,	nil,	"if (SaveRecordedGame) then SaveRecordedGame() end; FE_RestartGame(1)")
 BTN_RESTARTMISSION2		= NewMenuButton("m_btnRestartMission2",	"$5576",	"$5562",	0,	LAYOUT_BUTTONS,	nil,	"FE_RestartGame(0)")
-BTN_RESTART				= NewMenuButton("m_btnRestart",			"$5576",	"$5576",	0,	LAYOUT_BUTTONS,	nil,	"FE_RestartGame(1)")
+BTN_RESTART				= NewMenuButton("m_btnRestart",			"$5576",	"$5576",	0,	LAYOUT_BUTTONS,	nil,	"if (SaveRecordedGame) then SaveRecordedGame() end; FE_RestartGame(1)")
 
 
 

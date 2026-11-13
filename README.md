@@ -14,6 +14,16 @@
 4. Pick the '2.3 Test' mod from the modlist in the launcher
 5. Done
 
+### Replays
+
+2.3 Test includes [hwrm-replays](https://github.com/Novaras/hwrm-replays): every game you play can be saved and watched again from the game's own *Player vs CPU → Load Recorded Game* screen.
+
+1. Add `-enablerecord` to the game's launch options (Steam → Homeworld Remastered → Properties → Launch Options).
+2. Get the companion tool from the [hwrm-replays releases](https://github.com/Novaras/hwrm-replays/releases/latest) and run it while you play (or have Steam start it with the game); it turns each finished game into a named, playable replay. See the [hwrm-replays README](https://github.com/Novaras/hwrm-replays#readme) for details.
+3. Watch replays with 2.3 Test loaded: a replay only plays back correctly with the same mod (and version) it was recorded with.
+
+When a player **leaves** a game part-way through, every other player recording it crashes (an engine bug). Have one player record, ideally an observer, so only that copy is affected; surrendering is fine.
+
 ### Community
 
 The main community playing competetive HWRM multiplayer is found on the [Homeworld official Discord server](https://discord.gg/homeworld).
